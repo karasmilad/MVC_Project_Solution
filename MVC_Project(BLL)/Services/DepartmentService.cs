@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project_BLL_.Services
 {
-    public class DepartmentService(IDepartmentRepository departmentRepository)
+    public class DepartmentService(IDepartmentRepository departmentRepository) : IDepartmentService
     {
         private readonly IDepartmentRepository _departmentRepository = departmentRepository;
 

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MVC_Project_BLL_.Services;
 using MVC_Project_DAL_.Data.DBContext;
 using MVC_Project_DAL_.Repositories;
 
@@ -17,8 +18,11 @@ namespace MVVC_Project_PL_
             builder.Services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             #endregion
-            #region DepartmentRepository
+            #region DepartmentRepositoryService
             builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
+            #endregion
+            #region DepartmentControllerService
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
             #endregion
             #endregion
 
