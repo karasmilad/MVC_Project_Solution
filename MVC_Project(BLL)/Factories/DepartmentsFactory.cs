@@ -1,5 +1,5 @@
-﻿using MVC_Project_BLL_.DTOS;
-using MVC_Project_DAL_.Models;
+﻿using MVC_Project_BLL_.DTOS.DepartmentDTO;
+using MVC_Project_DAL_.Models.DepartmentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

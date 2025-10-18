@@ -1,13 +1,14 @@
-﻿using MVC_Project_BLL_.DTOS;
+﻿using MVC_Project_BLL_.DTOS.DepartmentDTO;
 using MVC_Project_BLL_.Factories;
-using MVC_Project_DAL_.Repositories;
+using MVC_Project_BLL_.Services.Interfaces;
+using MVC_Project_DAL_.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC_Project_BLL_.Services
+namespace MVC_Project_BLL_.Services.Classes
 {
     public class DepartmentService(IDepartmentRepository departmentRepository) : IDepartmentService
     {

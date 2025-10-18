@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVC_Project_BLL_.DTOS;
-using MVC_Project_BLL_.Services;
+using MVC_Project_BLL_.DTOS.DepartmentDTO;
+using MVC_Project_BLL_.Services.Interfaces;
 using MVVC_Project_PL_.ViewModels.DepartmentViewModel;
 
 namespace MVVC_Project_PL_.Controllers
@@ -10,12 +10,15 @@ namespace MVVC_Project_PL_.Controllers
         private readonly IDepartmentService _departmentService = departmentService;
         private readonly ILogger<DepartmentsController> _logger = logger;
         private readonly IWebHostEnvironment _environment = environment;
+        #region Index
         [HttpGet]
         public IActionResult Index()
         {
             var departments = _departmentService.AllDepartments();
             return View(departments);
         }
+        #endregion
+        #region Create
         [HttpGet]
         public IActionResult Create()
         {
@@ -52,6 +55,8 @@ namespace MVVC_Project_PL_.Controllers
             }
             return View(createdDepartmentDTO);
         }
+        #endregion
+        #region Details
         [HttpGet]
         public IActionResult Details(int? id)
         {
@@ -62,6 +67,8 @@ namespace MVVC_Project_PL_.Controllers
                 return NotFound();
             return View(department);
         }
+        #endregion
+        #region Edit
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -115,6 +122,8 @@ namespace MVVC_Project_PL_.Controllers
                 }
             }
         }
+        #endregion
+        #region Delete
         //[HttpGet]
         //public IActionResult Delete(int? id)
         //{
@@ -155,6 +164,7 @@ namespace MVVC_Project_PL_.Controllers
                     return View("ErrorView", ex);
                 }
             }
-        }
-        }
+        } 
+        #endregion
+    }
     }

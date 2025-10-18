@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC_Project_BLL_.DTOS
+namespace MVC_Project_BLL_.DTOS.DepartmentDTO
 {
     public class DepartmentByIdDTO
     {

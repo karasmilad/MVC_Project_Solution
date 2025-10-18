@@ -25,7 +25,7 @@ namespace MVC_Project_DAL_.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MVC_Project_DAL_.Models.Department", b =>
+            modelBuilder.Entity("MVC_Project_DAL_.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,6 +1,6 @@
-﻿using MVC_Project_BLL_.DTOS;
+﻿using MVC_Project_BLL_.DTOS.DepartmentDTO;
 
-namespace MVC_Project_BLL_.Services
+namespace MVC_Project_BLL_.Services.Interfaces
 {
     public interface IDepartmentService
     {
