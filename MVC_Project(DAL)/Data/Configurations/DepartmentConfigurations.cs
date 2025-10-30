@@ -10,6 +10,10 @@ namespace MVC_Project_DAL_.Data.Configurations
             builder.Property(d => d.Code).HasColumnType("varchar(20)");
             builder.Property(d => d.CreatedOn).HasDefaultValueSql("GETDATE()");
             builder.Property(d => d.LastModifiedOn).HasComputedColumnSql("GETDATE()");
+            builder.HasMany(E=> E.Employees)
+                   .WithOne(D=> D.Department)
+                   .HasForeignKey(D=> D.DepartmentId)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

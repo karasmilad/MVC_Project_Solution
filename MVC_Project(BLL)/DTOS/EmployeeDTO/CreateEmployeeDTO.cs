@@ -34,6 +34,7 @@ namespace MVC_Project_BLL_.DTOS.EmployeeDTO
         [Required]
         public Gender Gender { get; set; }
         [Required]
-        public EmployeeTypes EmployeeType { get; set; }
+        public EmployeeTypes EmployeeTypes { get; set; }
+        public int? DepartmentId { get; set; }
     }
 }

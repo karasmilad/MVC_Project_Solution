@@ -8,7 +8,7 @@ namespace MVC_Project_DAL_.Models.Shared.Enums
 {
     public enum EmployeeTypes
     {
-        PartTime = 1,
-        FullTime = 2
+        PartTime = 0,
+        FullTime = 1
     }
 }

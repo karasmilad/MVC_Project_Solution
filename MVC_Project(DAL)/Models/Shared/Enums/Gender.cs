@@ -8,7 +8,7 @@ namespace MVC_Project_DAL_.Models.Shared.Enums
 {
     public enum Gender
     {
-        Male = 1,
-        Female = 2
+        Male = 0,
+        Female = 1
     }
 }

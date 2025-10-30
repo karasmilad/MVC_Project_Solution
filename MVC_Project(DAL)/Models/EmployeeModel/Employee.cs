@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Project_DAL_.Models.DepartmentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace MVC_Project_DAL_.Models.EmployeeModel
         public DateTime HiringDate { get; set; }
         public Gender Gender { get; set; }
         public EmployeeTypes EmployeeTypes { get; set; }
-
+        public int? DepartmentId { get; set; } //FK
+        public virtual Department? Department { get; set; }//Navigation Property
 
 
     }

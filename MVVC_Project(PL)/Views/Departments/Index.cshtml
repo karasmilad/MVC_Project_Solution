@@ -32,9 +32,9 @@ else{
             @foreach(var department in Model)
             {
                 <tr>
+                    <td>@department.Code</td>
                     <td>@department.Name</td>
                     <td>@department.Description</td>
-                    <td>@department.Code</td>
                     <td>@department.DateOfCreation</td>
                     <td>
                         <a class="btn btn-primary" asp-action="Details" asp-route-id="@department.DeptId">

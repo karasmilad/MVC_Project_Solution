@@ -1,16 +1,11 @@
-﻿using MVC_Project_DAL_.Models.Shared.Enums;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using MVC_Project_DAL_.Models.Shared.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MVC_Project_BLL_.DTOS.EmployeeDTO
+namespace MVVC_Project_PL_.ViewModels.EmployeeViewModels
 {
-    public class UpdateEmployeeDTO
+    public class EmployeeViewModel
     {
-        public int Id { get; set; }
         [Required]
         [MaxLength(50, ErrorMessage = "Max Lenght Sholud be 50 Char")]
         [MinLength(5, ErrorMessage = "Min Lenght Sholud be 5 Char")]
@@ -23,17 +18,22 @@ namespace MVC_Project_BLL_.DTOS.EmployeeDTO
         public string? Address { get; set; }
         [DataType(DataType.Currency)]
         public decimal Salary { get; set; }
-        [Display(Name = "IS Active")]
+        [Display(Name = "is Active")]
         public bool IsActive { get; set; }
         [EmailAddress]
+        [Required]
         public string? Email { get; set; }
         [Display(Name = "Phone Number")]
         [Phone]
         public string? PhoneNumber { get; set; }
         [Display(Name = "Hiring Date")]
         public DateTime HiringDate { get; set; }
+        [Required]
         public Gender Gender { get; set; }
-        public EmployeeTypes? EmployeeTypes { get; set; }
+        [Required]
+        public EmployeeTypes EmployeeTypes { get; set; }
+        [Display(Name = "Department")]
         public int? DepartmentId { get; set; }
+        public virtual IEnumerable<SelectListItem>? Departments { get; set; }
     }
 }

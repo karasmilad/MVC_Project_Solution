@@ -19,10 +19,13 @@ namespace MVVC_Project_PL_
             #region Configure Services
             #region DBContext Service
             builder.Services.AddDbContext<ApplicationDBContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            #endregion
-            #region DepartmentRepositoryService
-            builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseLazyLoadingProxies();
+            });
+        #endregion
+        #region DepartmentRepositoryService
+        builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
             #endregion
             #region EmployeeRepositoryService
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Project_DAL_.Models.Shared.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,8 +19,10 @@ namespace MVC_Project_BLL_.DTOS.EmployeeDTO
         public decimal Salary { get; set; }
         [Display(Name = "is Active")]
         public bool IsActive { get; set; }
-        public string Gender { get; set; }
+        public Gender Gender { get; set; }
         [Display(Name = "Employee Type")]
-        public string EmployeeTypes { get; set; }
+        public EmployeeTypes EmployeeTypes { get; set; }
+        public int? DepartmentId { get; set; }
+        public string? Department { get; set; }
     }
 }

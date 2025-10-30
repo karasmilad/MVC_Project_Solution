@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MVC_Project_BLL_.DTOS.EmployeeDTO;
+using MVC_Project_DAL_.Models.DepartmentModel;
 using MVC_Project_DAL_.Models.EmployeeModel;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace MVC_Project_BLL_
     {
         public MappingProfiles()
         {
-            CreateMap<Employee, EmployeesDTO>();
+            CreateMap<Employee, EmployeesDTO>()
+                .ForMember(dest=>dest.Department ,options=>options.MapFrom(src=> src.Department.Name != null ? src.Department.Name : null));
             CreateMap<Employee, EmployeeByIdDTO>();
             CreateMap<CreateEmployeeDTO, Employee>();
             CreateMap<UpdateEmployeeDTO, Employee>();
