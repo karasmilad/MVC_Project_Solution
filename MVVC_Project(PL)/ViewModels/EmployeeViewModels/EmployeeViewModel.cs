@@ -14,7 +14,6 @@ namespace MVVC_Project_PL_.ViewModels.EmployeeViewModels
         [Range(24, 60, ErrorMessage = "Age Should be between 24 to 60")]
         public int Age { get; set; }
         [Required]
-        [RegularExpression("^[a-zA-Z]-[a-zA-Z]", ErrorMessage = "Address Be Like Street-City")]
         public string? Address { get; set; }
         [DataType(DataType.Currency)]
         public decimal Salary { get; set; }
@@ -35,5 +34,6 @@ namespace MVVC_Project_PL_.ViewModels.EmployeeViewModels
         [Display(Name = "Department")]
         public int? DepartmentId { get; set; }
         public virtual IEnumerable<SelectListItem>? Departments { get; set; }
+        public IFormFile? ImageName { get; set; }
     }
 }

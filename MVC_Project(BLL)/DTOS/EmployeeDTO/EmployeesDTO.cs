@@ -24,5 +24,7 @@ namespace MVC_Project_BLL_.DTOS.EmployeeDTO
         public EmployeeTypes EmployeeTypes { get; set; }
         public int? DepartmentId { get; set; }
         public string? Department { get; set; }
+        [Display(Name = "Image")]
+        public string? ImageName { get; set; }
     }
 }

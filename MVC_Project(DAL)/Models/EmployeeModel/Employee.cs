@@ -22,7 +22,7 @@ namespace MVC_Project_DAL_.Models.EmployeeModel
         public EmployeeTypes EmployeeTypes { get; set; }
         public int? DepartmentId { get; set; } //FK
         public virtual Department? Department { get; set; }//Navigation Property
-
+        public string? ImageName { get; set; }
 
     }
 }

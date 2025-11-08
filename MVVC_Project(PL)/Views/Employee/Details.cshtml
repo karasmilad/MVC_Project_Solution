@@ -4,6 +4,9 @@
 }
 
 <h1 class="my-5 w-75">Employee Details</h1>
+<div class="m-2">
+    <img width="100" height="100" src="~/Files/Images/@(Model.ImageName is not null ? Model.ImageName : "User.png") "alt="Employee Image" />
+</div>
 <ul class="nav nav-tabs" id="employeeTabs" role="tablist">
     <li class="nav-item" role="presentation">
         <a class="nav-link active" id="general-tab" data-bs-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>

@@ -61,7 +61,8 @@ namespace MVVC_Project_PL_.Controllers
                         HiringDate = employeeViewModel.HiringDate,
                         Gender = employeeViewModel.Gender,
                         EmployeeTypes = employeeViewModel.EmployeeTypes,
-                        DepartmentId = employeeViewModel.DepartmentId
+                        DepartmentId = employeeViewModel.DepartmentId,
+                        ImageName = employeeViewModel.ImageName
                     };
                     int Result = _employeeService.CreateEmployee(createEmployee);
                     if (Result > 0)
@@ -120,6 +121,7 @@ namespace MVVC_Project_PL_.Controllers
                 Gender = Employee.Gender,
                 EmployeeTypes = Employee.EmployeeTypes,
                 DepartmentId = Employee.DepartmentId
+                
             };
             EmployeeVM.Departments = _department.AllDepartments().Select
             (

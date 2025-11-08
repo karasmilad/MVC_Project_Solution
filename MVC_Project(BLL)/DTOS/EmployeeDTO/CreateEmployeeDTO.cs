@@ -1,4 +1,5 @@
-﻿using MVC_Project_DAL_.Models.Shared.Enums;
+﻿using Microsoft.AspNetCore.Http;
+using MVC_Project_DAL_.Models.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,7 @@ namespace MVC_Project_BLL_.DTOS.EmployeeDTO
         [Required]
         [Range(24,60,ErrorMessage ="Age Should be between 24 to 60")]
         public int Age { get; set; }
-        [RegularExpression("^[1-9]{1,3}-[a-zA-Z]{5,10}-[a-zA-Z]{5,10}-[a-zA-Z]{5,10}$",ErrorMessage = "Address Be Like 123-Street-City-Country")]
+        [Required]
         public string? Address { get; set; }
         [DataType(DataType.Currency)]
         public decimal Salary { get; set; }
@@ -36,5 +37,6 @@ namespace MVC_Project_BLL_.DTOS.EmployeeDTO
         [Required]
         public EmployeeTypes EmployeeTypes { get; set; }
         public int? DepartmentId { get; set; }
+        public IFormFile? ImageName { get; set; }
     }
 }

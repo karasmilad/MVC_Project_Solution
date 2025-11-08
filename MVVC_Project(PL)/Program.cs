@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MVC_Project_BLL_;
+using MVC_Project_BLL_.Services.Attachment_Service;
 using MVC_Project_BLL_.Services.Classes;
 using MVC_Project_BLL_.Services.Interfaces;
 using MVC_Project_DAL_.Data.DBContext;
@@ -24,18 +25,20 @@ namespace MVVC_Project_PL_
                 options.UseLazyLoadingProxies();
             });
         #endregion
-        #region DepartmentRepositoryService
-        builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
+            #region UnitOfWork
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             #endregion
-            #region EmployeeRepositoryService
-            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            #region AttachmentService
+            builder.Services.AddScoped<IAttachmentService, AttachmentService>();
+            #endregion
+            #region DepartmentControllerService
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+            #endregion
+            #region EmployeeControllerService
             builder.Services.AddScoped<IEmployeeService, EmployeeService>();
             #endregion
             #region AutoMapper
             builder.Services.AddAutoMapper(E => E.AddProfile(new MappingProfiles()));
-            #endregion
-            #region DepartmentControllerService
-            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
             #endregion
             #endregion
 
