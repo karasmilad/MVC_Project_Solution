@@ -1,0 +1,50 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+<div class="main-w3layouts wrapper">
+	<h1>Creative Login Form</h1>
+	<div class="main-agileinfo">
+		<div class="agileits-top">
+			<form asp-action="Login" asp-controller="Account" method="post">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<br />
+				<input asp-for="Email" placeholder="Email" required="">
+				<span asp-validation-for="Email"></span>
+				<br />
+				<input asp-for="Password" placeholder="Password" required="">
+				<span asp-validation-for="Password"></span>
+				<br />
+				<div class="wthree-text">
+					<label class="anim">
+						<input asp-for="RememberMe" class="checkbox">
+						<span>Remember Me</span>
+					</label>
+					<div class="clear"> </div>
+				</div>
+				<input type="submit" value="LOGIN">
+			</form>
+			<p>Don't Have an Account? <a asp-action="Register"> Register Now!</a></p>
+			<p>Forget Your Password? <a asp-action="ForgetPassword"> Reset Your Password Now!</a></p>
+		</div>
+	</div>
+	<!-- copyright -->
+	<div class="colorlibcopy-agile">
+		<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+	</div>
+	<!-- //copyright -->
+	<ul class="colorlib-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<!-- //main -->

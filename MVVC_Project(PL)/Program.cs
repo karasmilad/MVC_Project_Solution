@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project_BLL_;
 using MVC_Project_BLL_.Services.Attachment_Service;
 using MVC_Project_BLL_.Services.Classes;
+using MVC_Project_BLL_.Services.EmailSender;
 using MVC_Project_BLL_.Services.Interfaces;
 using MVC_Project_DAL_.Data.DBContext;
+using MVC_Project_DAL_.Models.IdentityModels;
 using MVC_Project_DAL_.Repositories.Classes;
 using MVC_Project_DAL_.Repositories.Interfaces;
 
@@ -37,8 +40,26 @@ namespace MVVC_Project_PL_
             #region EmployeeControllerService
             builder.Services.AddScoped<IEmployeeService, EmployeeService>();
             #endregion
+            #region IdentitdyDBContext
+            builder.Services
+                   .AddIdentity<ApplicationUser, IdentityRole>
+                   (
+                    options =>
+                    {
+                        //options.Password.RequireNonAlphanumeric = false;
+                        options.User.RequireUniqueEmail = true;
+                        options.Password.RequiredLength = 8;
+                    }
+
+                   )
+                   .AddEntityFrameworkStores<ApplicationDBContext>()
+                   .AddDefaultTokenProviders();
+            #endregion
             #region AutoMapper
             builder.Services.AddAutoMapper(E => E.AddProfile(new MappingProfiles()));
+            #endregion
+            #region EmailSenderService
+            builder.Services.AddScoped<IEmailSender, EmailSender>();
             #endregion
             #endregion
 
@@ -54,16 +75,15 @@ namespace MVVC_Project_PL_
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Register}/{id?}");
 
             app.Run();
         }
     }
 }
+ 

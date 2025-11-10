@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVC_Project_BLL_.DTOS.EmployeeDTO;
 using MVC_Project_BLL_.Services.Interfaces;
@@ -7,6 +8,7 @@ using MVVC_Project_PL_.ViewModels.EmployeeViewModels;
 
 namespace MVVC_Project_PL_.Controllers
 {
+    [Authorize] //Anyony is Authenticated Can Access this Controller
     public class EmployeeController(IEmployeeService employeeService, IWebHostEnvironment webHostEnvironment, ILogger<EmployeeController> logger, IDepartmentService department) : Controller
     {
         private readonly IEmployeeService _employeeService = employeeService;

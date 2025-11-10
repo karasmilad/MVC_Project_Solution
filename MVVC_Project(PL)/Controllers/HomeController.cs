@@ -1,9 +1,11 @@
-using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVVC_Project_PL_.Models;
+using System.Diagnostics;
 
 namespace MVVC_Project_PL_.Controllers
 {
+    [Authorize] //Anyony is Authenticated Can Access this Controller
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

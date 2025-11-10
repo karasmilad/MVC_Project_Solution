@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVC_Project_BLL_.DTOS.DepartmentDTO;
 using MVC_Project_BLL_.Services.Interfaces;
 using MVVC_Project_PL_.ViewModels.DepartmentViewModel;
 
 namespace MVVC_Project_PL_.Controllers
 {
+    [Authorize] //Anyony is Authenticated Can Access this Controller
     public class DepartmentsController(IDepartmentService departmentService, ILogger<DepartmentsController> logger, IWebHostEnvironment environment) : Controller
     {
         private readonly IDepartmentService _departmentService = departmentService;
